@@ -805,8 +805,8 @@ describe Paperclip::Storage::S3 do
         development: {
           s3_region: "ap-northeast-1",
           s3_host_name: "s3-ap-northeast-1.amazonaws.com" },
-        test: {
-          s3_region: "" }
+        # Remove s3_region so that MissingRegionError is raised instead of InvalidRegionError
+        test: {}
         }
       @dummy = Dummy.new
     end

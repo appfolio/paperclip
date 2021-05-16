@@ -55,7 +55,10 @@ describe 'Paperclip' do
     end
 
     context 'reprocessing with unreadable original' do
-      before { File.chmod(0000, @dummy.avatar.path) }
+      before do
+        # File.chmod is not working on CircleCI, replaced with explicit raise
+        expect(@dummy).to receive(:save).and_raise(Errno::EACCES)
+      end
 
       it "does not raise an error" do
         assert_nothing_raised do
@@ -70,8 +73,6 @@ describe 'Paperclip' do
           assert !@dummy.avatar.reprocess!
         end
       end
-
-      after { File.chmod(0644, @dummy.avatar.path) }
     end
 
     context "redefining its attachment styles" do
@@ -80,6 +81,8 @@ describe 'Paperclip' do
           has_attached_file :avatar, styles: { thumb: "150x25#", dynamic: lambda { |a| '50x50#' } }
         end
         @d2 = Dummy.find(@dummy.id)
+        # Needed for testing with mysql instead of sqlite due to less precision in timestamp
+        @d2.update!(avatar_updated_at: @d2.avatar_updated_at - 10.seconds)
         @original_timestamp = @d2.avatar_updated_at
         @d2.avatar.reprocess!
         @d2.save
