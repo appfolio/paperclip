@@ -1,7 +1,18 @@
-appraise "4.2" do
-  gem "rails", "~> 4.2.0"
-end
+# frozen_string_literal: true
 
-appraise "5.0" do
-  gem "rails", "~> 5.0.0"
+case RUBY_VERSION
+when '2.6.3', '2.7.1'
+  appraise "ruby-#{RUBY_VERSION}_rails60" do
+    source 'https://rubygems.org' do
+      gem 'rails', '~> 6.0.0'
+    end
+  end
+
+  appraise "ruby-#{RUBY_VERSION}_rails61" do
+    source 'https://rubygems.org' do
+      gem 'rails', '~> 6.1.0'
+    end
+  end
+else
+  raise "Unsupported Ruby version #{RUBY_VERSION}"
 end

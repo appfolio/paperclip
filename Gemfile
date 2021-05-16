@@ -13,11 +13,11 @@ source 'https://rubygems.org' do
   gem 'fog-local', '0.6'
   gem 'generator_spec', '0.9.4'
   gem 'launchy', '2.5'
+  gem 'mysql2', '= 0.5.2'
   gem 'nokogiri', '1.11.3'
   gem 'railties', '>= 6', '< 7'
   gem 'rspec', '>= 3', '< 4'
   gem 'shoulda', '4'
-  gem 'sqlite3', '1.4.2'
   gem 'timecop', '0.9.4'
 end
 
