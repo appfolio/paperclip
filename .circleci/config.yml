@@ -1,0 +1,24 @@
+version: 2.1
+
+orbs:
+  gem-tool: appfolio/gem-tool@volatile
+
+workflows:
+  rc:
+    jobs:
+      - gem-tool/checkout_bundle_install_appraisal_rake_test:
+          name: test-ruby-271
+          context: appfolio_test_context
+          executor_tag: gem-tool/ruby_base_271_mysql
+          after-checkout-steps:
+            - run: yum install -y ImageMagick ImageMagick-devel ghostscript
+          after-appraisal-install-steps:
+            - gem-tool/wait_mysql
+      - gem-tool/checkout_bundle_install_appraisal_rake_test:
+          name: test-ruby-263
+          context: appfolio_test_context
+          executor_tag: gem-tool/ruby_base_263_mysql
+          after-checkout-steps:
+            - run: yum install -y ImageMagick ImageMagick-devel ghostscript
+          after-appraisal-install-steps:
+            - gem-tool/wait_mysql

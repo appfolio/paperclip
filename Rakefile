@@ -1,5 +1,16 @@
-require 'bundler/gem_tasks'
-require 'appraisal'
+# frozen_string_literal: true
+
+require 'bundler'
+
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  warn e.message
+  warn 'Run `bundle install` to install missing gems'
+  exit e.status_code
+end
+
+require 'af_gems'
 require 'rspec/core/rake_task'
 require 'cucumber/rake/task'
 
@@ -19,7 +30,7 @@ task :all do |t|
 end
 
 desc 'Test the paperclip plugin.'
-RSpec::Core::RakeTask.new(:spec)
+RSpec::Core::RakeTask.new(:test)
 
 desc 'Run integration test'
 Cucumber::Rake::Task.new do |t|
@@ -42,3 +53,9 @@ task :clean do |t|
   FileUtils.rm "test/paperclip.db" rescue nil
   Dir.glob("paperclip-*.gem").each{|f| FileUtils.rm f }
 end
+
+namespace :test do
+  AfGems::RubyAppraisalTask.new(:all, ['ruby-2.6.3', 'ruby-2.7.1'])
+end
+
+task default: :test

@@ -1,54 +1,26 @@
-$LOAD_PATH.push File.expand_path("../lib", __FILE__)
-require 'paperclip/version'
+# frozen_string_literal: true
 
-Gem::Specification.new do |s|
-  s.name              = "paperclip"
-  s.version           = Paperclip::VERSION
-  s.platform          = Gem::Platform::RUBY
-  s.author            = "Jon Yurek"
-  s.email             = ["jyurek@thoughtbot.com"]
-  s.homepage          = "https://github.com/thoughtbot/paperclip"
-  s.summary           = "File attachments as attributes for ActiveRecord"
-  s.description       = "Easy upload management for ActiveRecord"
-  s.license           = "MIT"
+require_relative 'lib/paperclip/version'
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+Gem::Specification.new do |spec|
+  spec.name          = 'paperclip'
+  spec.version       = Paperclip::VERSION
+  spec.platform      = Gem::Platform::RUBY
+  spec.author        = 'AppFolio'
+  spec.email         = 'dev@appfolio.com'
+  spec.description   = 'Easy upload management for ActiveRecord'
+  spec.summary       = 'File attachments as attributes for ActiveRecord'
+  spec.homepage      = 'https://github.com/appfolio/paperclip'
+  spec.license       = 'MIT'
+  spec.files         = Dir['**/*'].select { |f| f[/^(lib\/|.*gemspec)/] }
+  spec.require_paths = ['lib']
+  spec.requirements << 'ImageMagick'
 
-  if File.exist?('UPGRADING')
-    s.post_install_message = File.read("UPGRADING")
-  end
+  spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/appfolio'
 
-  s.requirements << "ImageMagick"
-  s.required_ruby_version = ">= 2.1.0"
-
-  s.add_dependency('activemodel', '>= 4.2.0')
-  s.add_dependency('activesupport', '>= 4.2.0')
-  s.add_dependency('terrapin', '~> 0.6.0')
-  s.add_dependency('mime-types')
-  s.add_dependency('mimemagic', '~> 0.3.0')
-
-  s.add_development_dependency('activerecord', '>= 4.2.0')
-  s.add_development_dependency('shoulda')
-  s.add_development_dependency('rspec', '~> 3.0')
-  s.add_development_dependency('appraisal')
-  s.add_development_dependency('mocha')
-  s.add_development_dependency('aws-sdk-s3')
-  s.add_development_dependency('bourne')
-  s.add_development_dependency('cucumber-rails')
-  s.add_development_dependency('cucumber-expressions', '4.0.3') # TODO: investigate failures on 4.0.4
-  s.add_development_dependency('aruba', '~> 0.9.0')
-  s.add_development_dependency('nokogiri')
-  s.add_development_dependency('capybara')
-  s.add_development_dependency('bundler')
-  s.add_development_dependency('fog-aws')
-  s.add_development_dependency('fog-local')
-  s.add_development_dependency('launchy')
-  s.add_development_dependency('rake')
-  s.add_development_dependency('fakeweb')
-  s.add_development_dependency('railties')
-  s.add_development_dependency('generator_spec')
-  s.add_development_dependency('timecop')
+  spec.add_dependency('activemodel', ['>= 6', '< 7'])
+  spec.add_dependency('activesupport', ['>= 6', '< 7'])
+  spec.add_dependency('terrapin', ['>= 0.6', '< 0.7'])
+  spec.add_dependency('marcel', ['>= 1.0.1', '< 2'])
+  spec.add_dependency('mime-types', ['>= 3.3', '< 4'])
 end
