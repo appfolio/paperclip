@@ -31,7 +31,7 @@ describe Paperclip::Schema do
         expect(columns).to include(['avatar_file_name', "varchar(255)"])
         expect(columns).to include(['avatar_content_type', "varchar(255)"])
         expect(columns).to include(['avatar_file_size', "bigint(20)"])
-        expect(columns).to include(['avatar_updated_at', "datetime"])
+        expect(columns).to include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
       end
 
       it "displays deprecation warning" do
@@ -57,7 +57,7 @@ describe Paperclip::Schema do
         expect(columns).to include(['avatar_file_name', "varchar(255)"])
         expect(columns).to include(['avatar_content_type', "varchar(255)"])
         expect(columns).to include(['avatar_file_size', "bigint(20)"])
-        expect(columns).to include(['avatar_updated_at', "datetime"])
+        expect(columns).to include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
       end
     end
 
@@ -98,7 +98,7 @@ describe Paperclip::Schema do
           expect(columns).to include(['avatar_file_name', "varchar(255)"])
           expect(columns).to include(['avatar_content_type', "varchar(255)"])
           expect(columns).to include(['avatar_file_size', "bigint(20)"])
-          expect(columns).to include(['avatar_updated_at', "datetime"])
+          expect(columns).to include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
         end
       end
 
@@ -129,11 +129,11 @@ describe Paperclip::Schema do
           expect(columns).to include(['avatar_file_name', "varchar(255)"])
           expect(columns).to include(['avatar_content_type', "varchar(255)"])
           expect(columns).to include(['avatar_file_size', "bigint(20)"])
-          expect(columns).to include(['avatar_updated_at', "datetime"])
+          expect(columns).to include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
           expect(columns).to include(['photo_file_name', "varchar(255)"])
           expect(columns).to include(['photo_content_type', "varchar(255)"])
           expect(columns).to include(['photo_file_size', "bigint(20)"])
-          expect(columns).to include(['photo_updated_at', "datetime"])
+          expect(columns).to include(['photo_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
         end
       end
 
@@ -189,7 +189,7 @@ describe Paperclip::Schema do
           expect(columns).to_not include(['avatar_file_name', "varchar(255)"])
           expect(columns).to_not include(['avatar_content_type', "varchar(255)"])
           expect(columns).to_not include(['avatar_file_size', "bigint(20)"])
-          expect(columns).to_not include(['avatar_updated_at', "datetime"])
+          expect(columns).to_not include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
         end
 
         it "displays a deprecation warning" do
@@ -212,7 +212,7 @@ describe Paperclip::Schema do
             expect(columns).to_not include(['avatar_file_name', "varchar(255)"])
             expect(columns).to_not include(['avatar_content_type', "varchar(255)"])
             expect(columns).to_not include(['avatar_file_size', "bigint(20)"])
-            expect(columns).to_not include(['avatar_updated_at', "datetime"])
+            expect(columns).to_not include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
           end
         end
 
@@ -235,11 +235,11 @@ describe Paperclip::Schema do
             expect(columns).to_not include(['avatar_file_name', "varchar(255)"])
             expect(columns).to_not include(['avatar_content_type', "varchar(255)"])
             expect(columns).to_not include(['avatar_file_size', "bigint(20)"])
-            expect(columns).to_not include(['avatar_updated_at', "datetime"])
+            expect(columns).to_not include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
             expect(columns).to_not include(['photo_file_name', "varchar(255)"])
             expect(columns).to_not include(['photo_content_type', "varchar(255)"])
             expect(columns).to_not include(['photo_file_size', "bigint(20)"])
-            expect(columns).to_not include(['photo_updated_at', "datetime"])
+            expect(columns).to_not include(['photo_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
           end
         end
 

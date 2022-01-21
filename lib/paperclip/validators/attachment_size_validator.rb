@@ -1,4 +1,5 @@
 require 'active_model/validations/numericality'
+require 'active_model/validations/comparability' if ActiveModel.version >= Gem::Version.new('7')
 
 module Paperclip
   module Validators
@@ -24,7 +25,7 @@ module Paperclip
             option_value = option_value.call(record) if option_value.is_a?(Proc)
             option_value = extract_option_value(option, option_value)
 
-            unless value.send(CHECKS[option], option_value)
+            unless value.send(checks[option], option_value)
               error_message_key = options[:in] ? :in_between : option
               [attr_name, base_attr_name].each do |error_attr_name|
                 record.errors.add(
@@ -49,6 +50,14 @@ module Paperclip
       end
 
       private
+
+      def checks
+        if ActiveModel.version >= Gem::Version.new('7')
+          ActiveModel::Validations::Comparability::COMPARE_CHECKS.merge(ActiveModel::Validations::NumericalityValidator::NUMBER_CHECKS)
+        else
+          ActiveModel::Validations::NumericalityValidator::CHECKS
+        end
+      end
 
       def extract_options(options)
         if range = options[:in]

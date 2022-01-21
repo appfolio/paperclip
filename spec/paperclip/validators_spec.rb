@@ -22,7 +22,8 @@ describe Paperclip::Validators do
     it 'prevents you from attaching a file that violates that validation' do
       Dummy.class_eval{ validate(:name) { raise "DO NOT RUN THIS" } }
       dummy = Dummy.new(avatar: File.new(fixture_file("12k.png")))
-      expect(dummy.errors.keys).to match_array [:avatar_content_type, :avatar, :avatar_file_size]
+      attribute_names = ActiveModel.version >= Gem::Version.new('6.1') ? dummy.errors.attribute_names : dummy.errors.keys
+      expect(attribute_names).to match_array [:avatar_content_type, :avatar, :avatar_file_size]
       assert_raises(RuntimeError){ dummy.valid? }
     end
   end
@@ -47,21 +48,24 @@ describe Paperclip::Validators do
     it 'prevents you from attaching a file that violates all of these validations' do
       Dummy.class_eval{ validate(:name) { raise 'DO NOT RUN THIS' } }
       dummy = Dummy.new(avatar: File.new(fixture_file('spaced file.png')))
-      expect(dummy.errors.keys).to match_array [:avatar, :avatar_file_name]
+      attribute_names = ActiveModel.version >= Gem::Version.new('6.1') ? dummy.errors.attribute_names : dummy.errors.keys
+      expect(attribute_names).to match_array [:avatar, :avatar_file_name]
       assert_raises(RuntimeError){ dummy.valid? }
     end
 
     it 'prevents you from attaching a file that violates only first of these validations' do
       Dummy.class_eval{ validate(:name) { raise 'DO NOT RUN THIS' } }
       dummy = Dummy.new(avatar: File.new(fixture_file('5k.png')))
-      expect(dummy.errors.keys).to match_array [:avatar, :avatar_file_name]
+      attribute_names = ActiveModel.version >= Gem::Version.new('6.1') ? dummy.errors.attribute_names : dummy.errors.keys
+      expect(attribute_names).to match_array [:avatar, :avatar_file_name]
       assert_raises(RuntimeError){ dummy.valid? }
     end
 
     it 'prevents you from attaching a file that violates only second of these validations' do
       Dummy.class_eval{ validate(:name) { raise 'DO NOT RUN THIS' } }
       dummy = Dummy.new(avatar: File.new(fixture_file('spaced file.jpg')))
-      expect(dummy.errors.keys).to match_array [:avatar, :avatar_file_name]
+      attribute_names = ActiveModel.version >= Gem::Version.new('6.1') ? dummy.errors.attribute_names : dummy.errors.keys
+      expect(attribute_names).to match_array [:avatar, :avatar_file_name]
       assert_raises(RuntimeError){ dummy.valid? }
     end
 
@@ -88,7 +92,8 @@ describe Paperclip::Validators do
         end
       end
       dummy = Dummy.new(avatar: File.new(fixture_file("12k.png")))
-      expect(dummy.errors.keys).to match_array [:avatar_content_type, :avatar, :avatar_file_size]
+      attribute_names = ActiveModel.version >= Gem::Version.new('6.1') ? dummy.errors.attribute_names : dummy.errors.keys
+      expect(attribute_names).to match_array [:avatar_content_type, :avatar, :avatar_file_size]
     end
 
     it "does not validate attachment if title is not present" do
@@ -98,7 +103,8 @@ describe Paperclip::Validators do
         end
       end
       dummy = Dummy.new(avatar: File.new(fixture_file("12k.png")))
-      assert_equal [], dummy.errors.keys
+      attribute_names = ActiveModel.version >= Gem::Version.new('6.1') ? dummy.errors.attribute_names : dummy.errors.keys
+      assert_equal [], attribute_names
     end
   end
 

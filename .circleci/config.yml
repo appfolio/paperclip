@@ -6,19 +6,25 @@ orbs:
 workflows:
   rc:
     jobs:
-      - gem-tool/checkout_bundle_install_appraisal_rake_test:
-          name: test-ruby-271
+      - gem-tool/rake_test:
+          name: test_ruby-<< matrix.ruby_version >>
           context: appfolio_test_context
-          executor_tag: gem-tool/ruby_base_271_mysql
+          executor_tag: ruby_mysql
+          matrix:
+            parameters:
+              ruby_version:
+                - '3.1.0'
+                - '2.7.5'
+                - '2.6.9'
           after-checkout-steps:
-            - run: yum install -y ImageMagick ImageMagick-devel ghostscript
-          after-appraisal-install-steps:
-            - gem-tool/wait_mysql
-      - gem-tool/checkout_bundle_install_appraisal_rake_test:
-          name: test-ruby-263
-          context: appfolio_test_context
-          executor_tag: gem-tool/ruby_base_263_mysql
-          after-checkout-steps:
-            - run: yum install -y ImageMagick ImageMagick-devel ghostscript
+            - run:
+                name: Update Package Lists
+                command: sudo apt-get update
+            - run:
+                name: Install imagemagick ghostscript
+                command: sudo apt-get install -y imagemagick ghostscript
+            - run:
+                name: Edit ImagemMagick Policies
+                command: sudo sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
           after-appraisal-install-steps:
             - gem-tool/wait_mysql

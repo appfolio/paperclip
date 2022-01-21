@@ -20,10 +20,12 @@ FIXTURES_DIR = File.join(File.dirname(__FILE__), "fixtures")
 config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
 ActiveRecord::Base.logger = Logger.new(File.dirname(__FILE__) + "/debug.log")
 
-`mysql -h 127.0.0.1 -u root -e "DROP DATABASE IF EXISTS paperclip_test; \
-  CREATE DATABASE IF NOT EXISTS paperclip_test;"`
+ActiveRecord::Tasks::DatabaseTasks.env = 'test'
+ActiveRecord::Base.configurations = { 'test' => config['test'] }
 
-ActiveRecord::Base.establish_connection(config['test'])
+# Re-create test database
+ActiveRecord::Tasks::DatabaseTasks.drop_current
+ActiveRecord::Tasks::DatabaseTasks.create_current
 
 Paperclip.options[:logger] = ActiveRecord::Base.logger
 
