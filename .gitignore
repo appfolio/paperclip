@@ -1,19 +1,12 @@
-*~
-*.swp
-.rvmrc
-.bundle
-tmp
-.DS_Store
+/.bundle/
+/coverage/
+/pkg/
+/tmp/
 
+# Only generate Appraisal gemfiles on CI
+/gemfiles/
+
+# Ignore generated files
+Gemfile.lock
 *.log
-
-public
-paperclip*.gem
-capybara*.html
-
-*.rbc
-.rbx
-
-*SPIKE*
-*emfile.lock
-tags
+*.gem
