@@ -55,7 +55,7 @@ task :clean do |t|
 end
 
 namespace :test do
-  AfGems::RubyAppraisalTask.new(:all, ['ruby-2.6.9', 'ruby-2.7.5', 'ruby-3.1.0'])
+  AfGems::RubyAppraisalTask.new(:all, ['ruby-2.7.7', 'ruby-3.1.2', 'ruby-3.2.1'])
 end
 
 task default: :test

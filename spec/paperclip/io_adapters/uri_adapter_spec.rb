@@ -213,7 +213,7 @@ describe Paperclip::UriAdapter do
       end
 
       it "calls open with read_timeout option" do
-        expect(@subject).to receive(:open).with(@uri, read_timeout: 120).at_least(1).times
+        expect(@subject).to receive(:open).with(@uri, { read_timeout: 120 }).at_least(1).times
       end
     end
   end
