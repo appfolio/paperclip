@@ -65,7 +65,7 @@ describe Paperclip::Schema do
       before do
         Dummy.connection.create_table :dummies, force: true do |t|
           # Default updated_at needed for mysql instead of sqlite
-          t.attachment :avatar, default: 1, file_name: { default: 'default' }, updated_at: { default: Time.now }
+          t.attachment :avatar, content_type: { default: '1' }, file_size: { default: 1 }, file_name: { default: 'default' }, updated_at: { default: Time.now }
         end
       end
 
@@ -104,7 +104,7 @@ describe Paperclip::Schema do
 
       context "with single attachment and options" do
         before do
-          Dummy.connection.add_attachment :dummies, :avatar, default: '1', file_name: { default: 'default' }
+          Dummy.connection.add_attachment :dummies, :avatar, content_type: { default: '1' }, file_size: { default: 1 }, file_name: { default: 'default' }
         end
 
         it "sets defaults on columns" do
@@ -139,7 +139,7 @@ describe Paperclip::Schema do
 
       context "with multiple attachments and options" do
         before do
-          Dummy.connection.add_attachment :dummies, :avatar, :photo, default: '1', file_name: { default: 'default' }
+          Dummy.connection.add_attachment :dummies, :avatar, :photo, content_type: { default: '1' }, file_size: { default: 1 }, file_name: { default: 'default' }
         end
 
         it "sets defaults on columns" do
