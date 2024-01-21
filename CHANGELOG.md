@@ -1,5 +1,41 @@
 # Changelog
 
+## [v6.2.0.appfolio5](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio5) (2024-01-21)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio4...v6.2.0.appfolio5)
+
+**Merged pull requests:**
+
+- \[BANK-812\] Appraise Ruby `3.3.0` [\#9](https://github.com/appfolio/paperclip/pull/9) ([Maimer](https://github.com/Maimer))
+
+## [v6.2.0.appfolio4](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio4) (2023-10-21)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio3...v6.2.0.appfolio4)
+
+**Merged pull requests:**
+
+- Appraise Rails 7.1 [\#8](https://github.com/appfolio/paperclip/pull/8) ([Maimer](https://github.com/Maimer))
+- Updates for Ruby `2.7.7`, `3.1.2`, `3.2.1` [\#7](https://github.com/appfolio/paperclip/pull/7) ([Maimer](https://github.com/Maimer))
+- Setup Dependabot to use GitHub private registries [\#6](https://github.com/appfolio/paperclip/pull/6) ([chrislujan](https://github.com/chrislujan))
+
+## [v6.2.0.appfolio3](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio3) (2022-01-22)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio2...v6.2.0.appfolio3)
+
+**Merged pull requests:**
+
+- Hard code `CHECKS` in `attachment_size_validator` [\#5](https://github.com/appfolio/paperclip/pull/5) ([Maimer](https://github.com/Maimer))
+
+## [v6.2.0.appfolio2](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio2) (2022-01-21)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio1...v6.2.0.appfolio2)
+
+**Merged pull requests:**
+
+- Appraise rubies 2.6.9, 2.7.5, 3.1.0, and Rails 7 [\#4](https://github.com/appfolio/paperclip/pull/4) ([Maimer](https://github.com/Maimer))
+- Re-add gemfiles [\#3](https://github.com/appfolio/paperclip/pull/3) ([Maimer](https://github.com/Maimer))
+- Update development gems [\#2](https://github.com/appfolio/paperclip/pull/2) ([Maimer](https://github.com/Maimer))
+
 ## [v6.2.0.appfolio1](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio1) (2021-06-18)
 
 [Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.pre.1...v6.2.0.appfolio1)
