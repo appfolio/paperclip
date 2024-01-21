@@ -10,6 +10,7 @@ source 'https://rubygems.org' do
   gem 'aws-sdk-s3', '>= 1.93', '< 2'
   gem 'capybara', '>= 2.12', '< 4'
   gem 'cucumber-expressions', '>= 8', '< 9'
+  gem 'debug', '>= 1.9', '< 2'
   gem 'fakeweb', '>= 1.3', '< 2'
   gem 'fog-aws', '>= 3.12', '< 4'
   gem 'fog-local', '>= 0.7', '< 1'

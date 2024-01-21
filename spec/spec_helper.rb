@@ -9,6 +9,7 @@ require 'ostruct'
 require 'pathname'
 require 'activerecord-import'
 require 'yaml'
+require 'debug'
 
 ROOT = Pathname(File.expand_path(File.join(File.dirname(__FILE__), '..')))
 

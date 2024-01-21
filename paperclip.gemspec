@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.requirements << 'ImageMagick'
 
+  spec.required_ruby_version = Gem::Requirement.new('< 3.4')
   spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/appfolio'
 
   spec.add_dependency('activemodel', ['>= 6.1', '< 7.2'])
