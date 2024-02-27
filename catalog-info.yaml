@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: paperclip
+  description: This is a fork of a deprecated rails gem that is no longer receiving updates.
+  tags: []
+  annotations:
+    appfolio.com/package-location: url:https://github.com/appfolio/paperclip/pkgs/rubygems/paperclip
+    appfolio.com/package-type: gem
+  name: paperclip
+spec:
+  type: library
+  lifecycle: deprecated
+  owner: apm-platform-group
