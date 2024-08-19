@@ -15,14 +15,9 @@ describe Paperclip::Schema do
 
   context "within table definition" do
     context "using #has_attached_file" do
-      before do
-        ActiveSupport::Deprecation.silenced = false
-      end
       it "creates attachment columns" do
         Dummy.connection.create_table :dummies, force: true do |t|
-          ActiveSupport::Deprecation.silence do
-            t.has_attached_file :avatar
-          end
+          t.has_attached_file :avatar
         end
 
         columns = Dummy.columns.map{ |column| [column.name, column.sql_type] }
@@ -32,14 +27,6 @@ describe Paperclip::Schema do
         expect(columns).to include(['avatar_content_type', "varchar(255)"])
         expect(columns).to include(['avatar_file_size', "bigint(20)"])
         expect(columns).to include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
-      end
-
-      it "displays deprecation warning" do
-        Dummy.connection.create_table :dummies, force: true do |t|
-          assert_deprecated do
-            t.has_attached_file :avatar
-          end
-        end
       end
     end
 
@@ -175,13 +162,8 @@ describe Paperclip::Schema do
       end
 
       context "using #drop_attached_file" do
-        before do
-          ActiveSupport::Deprecation.silenced = false
-        end
         it "removes the attachment columns" do
-          ActiveSupport::Deprecation.silence do
-            Dummy.connection.drop_attached_file :dummies, :avatar
-          end
+          Dummy.connection.drop_attached_file :dummies, :avatar
 
           columns = Dummy.columns.map{ |column| [column.name, column.sql_type] }
 
@@ -190,12 +172,6 @@ describe Paperclip::Schema do
           expect(columns).to_not include(['avatar_content_type', "varchar(255)"])
           expect(columns).to_not include(['avatar_file_size', "bigint(20)"])
           expect(columns).to_not include(['avatar_updated_at', "datetime#{ '(6)' if ActiveSupport.version >= Gem::Version.new('7') }"])
-        end
-
-        it "displays a deprecation warning" do
-          assert_deprecated do
-            Dummy.connection.drop_attached_file :dummies, :avatar
-          end
         end
       end
 
