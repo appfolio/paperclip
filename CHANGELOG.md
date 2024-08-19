@@ -1,5 +1,14 @@
 # Changelog
 
+## [v6.2.0.appfolio6](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio6) (2024-08-19)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio5...v6.2.0.appfolio6)
+
+**Merged pull requests:**
+
+- \[BANK-1177\] Appraise Rails 7.2 [\#11](https://github.com/appfolio/paperclip/pull/11) ([Maimer](https://github.com/Maimer))
+- \[KNOW-141\] Add software catalog metadata file\(s\) [\#10](https://github.com/appfolio/paperclip/pull/10) ([modethirteen](https://github.com/modethirteen))
+
 ## [v6.2.0.appfolio5](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio5) (2024-01-21)
 
 [Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio4...v6.2.0.appfolio5)
