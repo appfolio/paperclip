@@ -40,7 +40,6 @@ module Paperclip
       end
 
       def drop_attached_file(*args)
-        ActiveSupport::Deprecation.warn "Method `drop_attached_file` in the migration has been deprecated and will be replaced by `remove_attachment`."
         remove_attachment(*args)
       end
     end
@@ -57,7 +56,6 @@ module Paperclip
       end
 
       def has_attached_file(*attachment_names)
-        ActiveSupport::Deprecation.warn "Method `t.has_attached_file` in the migration has been deprecated and will be replaced by `t.attachment`."
         attachment(*attachment_names)
       end
     end
