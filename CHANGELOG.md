@@ -1,5 +1,13 @@
 # Changelog
 
+## [v6.2.0.appfolio7](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio7) (2025-03-28)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio6...v6.2.0.appfolio7)
+
+**Merged pull requests:**
+
+- \[BANK-1370\] Appraise ruby 3.4 and rails 8 [\#12](https://github.com/appfolio/paperclip/pull/12) ([Maimer](https://github.com/Maimer))
+
 ## [v6.2.0.appfolio6](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio6) (2024-08-19)
 
 [Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio5...v6.2.0.appfolio6)
