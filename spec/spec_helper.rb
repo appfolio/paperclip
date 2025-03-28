@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'logger' # Due to issue with activesupport / concurrent-ruby
 require 'rspec'
 require 'active_record'
 require 'active_record/version'
