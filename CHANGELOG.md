@@ -1,5 +1,15 @@
 # Changelog
 
+## [v6.2.0.appfolio8](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio8) (2025-10-28)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio7...v6.2.0.appfolio8)
+
+**Merged pull requests:**
+
+- \[BANK-1584\] Appraise rails 8.1 [\#15](https://github.com/appfolio/paperclip/pull/15) ([Maimer](https://github.com/Maimer))
+- \[BANK-1584\] Use `af_gems` test helpers [\#14](https://github.com/appfolio/paperclip/pull/14) ([Maimer](https://github.com/Maimer))
+- \[BANK-1584\] npm / yarn fixes [\#13](https://github.com/appfolio/paperclip/pull/13) ([Maimer](https://github.com/Maimer))
+
 ## [v6.2.0.appfolio7](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio7) (2025-03-28)
 
 [Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio6...v6.2.0.appfolio7)
