@@ -4,7 +4,7 @@ source 'https://rubygems.org' # global source
 source 'https://rubygems.pkg.github.com/appfolio' # global source
 
 source 'https://rubygems.org' do
-  gem 'activerecord', '>= 7', '< 8.1'
+  gem 'activerecord', '>= 7.2', '< 8.2'
   gem 'activerecord-import', '> 1', '< 2'
   gem 'aruba', '>= 2.3', '< 3'
   gem 'aws-sdk-s3', '>= 1.199', '< 2'
@@ -16,10 +16,9 @@ source 'https://rubygems.org' do
   gem 'fog-local', '>= 0.9', '< 1'
   gem 'generator_spec', '>= 0.10', '< 1'
   gem 'launchy', '>= 3.1', '< 4'
-  gem 'mutex_m', '>= 0.3', '< 1' # Needed for rails 7.x / ruby 3.4+
   gem 'mysql2', '>= 0.5.6', '< 1'
   gem 'nokogiri', '>= 1.18', '< 2'
-  gem 'railties', '>= 7', '< 8.1'
+  gem 'railties', '>= 7.2', '< 8.2'
   gem 'rspec', '>= 3.13', '< 4'
   gem 'shoulda', '>= 4', '< 5'
   gem 'timecop', '>= 0.9', '< 1'

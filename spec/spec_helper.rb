@@ -5,7 +5,6 @@ require 'af_gems/test/simplecov_test_helper'
 
 require 'debug' if ENV['REQUIRE_DEBUG']
 
-require 'logger' # Due to issue with activesupport / concurrent-ruby
 require 'rspec'
 require 'active_record'
 require 'active_record/version'
