@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency('activemodel', ['>= 7.2', '< 8.2'])
   spec.add_dependency('activesupport', ['>= 7.2', '< 8.2'])
-  spec.add_dependency('terrapin', ['>= 0.6', '< 0.7'])
+  spec.add_dependency('terrapin', ['>= 0.6', '< 2'])
   spec.add_dependency('marcel', ['>= 1.0.1', '< 2'])
   spec.add_dependency('mime-types', ['>= 3.3', '< 4'])
 end
