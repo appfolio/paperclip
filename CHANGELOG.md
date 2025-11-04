@@ -1,5 +1,13 @@
 # Changelog
 
+## [v6.2.0.appfolio9](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio9) (2025-11-04)
+
+[Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio8...v6.2.0.appfolio9)
+
+**Merged pull requests:**
+
+- \[BANK-1584\] Update terrapin dependency range [\#16](https://github.com/appfolio/paperclip/pull/16) ([Maimer](https://github.com/Maimer))
+
 ## [v6.2.0.appfolio8](https://github.com/appfolio/paperclip/tree/v6.2.0.appfolio8) (2025-10-28)
 
 [Full Changelog](https://github.com/appfolio/paperclip/compare/v6.2.0.appfolio7...v6.2.0.appfolio8)
